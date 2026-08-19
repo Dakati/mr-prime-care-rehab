@@ -1,6 +1,7 @@
 {
   "name": "MR Prime Care & Rehab Clinic",
   "short_name": "MR Prime Care",
+  "id": "/mr-prime-care-rehab/",
   "description": "Physiotherapy and rehabilitation care in Devanakonda.",
   "start_url": "./",
   "scope": "./",
