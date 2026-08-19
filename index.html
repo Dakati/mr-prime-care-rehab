@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MR Prime Care & Rehab Clinic — Devanakonda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-deep:#0F4C46;
+    --teal-mid:#2F7A6B;
+    --teal-soft:#5FA593;
+    --cream:#F6F4EE;
+    --mint-pale:#E7EFEA;
+    --ink:#1C2624;
+    --ink-soft:#4B5854;
+    --gold:#C89B4A;
+    --line: rgba(28,38,36,0.12);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:var(--teal-deep);
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+
+  /* Focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,244,238,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .brand{
+    display:flex; align-items:center; gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.15rem;
+    color:var(--teal-deep);
+  }
+  .brand-mark{
+    width:34px; height:34px; border-radius:50%;
+    background:var(--teal-deep);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--cream); font-family:'IBM Plex Mono',monospace; font-size:0.62rem; font-weight:500;
+    flex-shrink:0;
+  }
+  .nav-links{display:flex; gap:32px; font-size:0.92rem; font-weight:500; color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--teal-deep);}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 22px;
+    border-radius:100px;
+    font-weight:600;
+    font-size:0.9rem;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .btn-primary{
+    background:var(--teal-deep); color:var(--cream);
+    box-shadow:0 1px 2px rgba(15,76,70,0.2);
+  }
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:0 6px 16px rgba(15,76,70,0.28);}
+  .btn-ghost{
+    border:1.5px solid var(--line); color:var(--teal-deep);
+  }
+  .btn-ghost:hover{border-color:var(--teal-deep);}
+  @media (max-width:760px){ .nav-links{display:none;} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:88px 0 96px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  .rating-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--mint-pale);
+    border:1px solid var(--line);
+    padding:7px 14px; border-radius:100px;
+    font-size:0.82rem; font-weight:600; color:var(--teal-deep);
+    margin-bottom:22px;
+  }
+  .stars{color:var(--gold); letter-spacing:1px;}
+  .hero h1{
+    font-size:clamp(2.3rem, 4.2vw, 3.4rem);
+    line-height:1.08;
+    margin-bottom:20px;
+  }
+  .hero p.lead{
+    font-size:1.08rem; color:var(--ink-soft); max-width:46ch; margin-bottom:32px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:36px;}
+  .hero-meta{
+    display:flex; gap:28px; flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--ink-soft);
+  }
+  .hero-meta div{display:flex; align-items:center; gap:8px;}
+  .dot{width:6px; height:6px; border-radius:50%; background:var(--teal-mid);}
+
+  /* Clock signature */
+  .clock-wrap{
+    position:relative;
+    width:min(340px, 90%);
+    aspect-ratio:1/1;
+    margin:0 auto;
+  }
+  .clock-ring{
+    position:absolute; inset:0;
+    border-radius:50%;
+    background:conic-gradient(from 0deg, var(--teal-deep) 0deg, var(--teal-mid) 360deg);
+    padding:3px;
+  }
+  .clock-ring::before{
+    content:"";
+    position:absolute; inset:3px;
+    border-radius:50%;
+    background:var(--cream);
+  }
+  .clock-face{
+    position:absolute; inset:14px;
+    border-radius:50%;
+    background:var(--teal-deep);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:var(--cream);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .clock-face .big{
+    font-family:'Fraunces', serif; font-weight:700;
+    font-size:clamp(3.4rem, 8vw, 4.6rem);
+    line-height:1;
+  }
+  .clock-face .small{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--teal-soft); margin-top:6px;
+  }
+  .tick{
+    position:absolute; width:2px; height:10px; background:var(--gold);
+    top:0; left:50%; transform-origin:1px 170px;
+    opacity:0.9;
+  }
+  .hand{
+    position:absolute; left:50%; top:50%;
+    width:2px; height:38%; background:var(--gold);
+    transform-origin:bottom center;
+    transform:translate(-50%,-100%) rotate(0deg);
+    animation:spin 30s linear infinite;
+    border-radius:2px;
+  }
+  @keyframes spin{ to{ transform:translate(-50%,-100%) rotate(360deg); } }
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr; padding-top:56px;}
+    .clock-wrap{order:-1; width:220px;}
+  }
+
+  /* ---------- Section shared ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:56ch; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.8rem,3vw,2.4rem); margin-top:10px;}
+  .alt{background:var(--mint-pale);}
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .service{
+    background:var(--cream);
+    padding:36px 30px;
+    transition:background 0.2s ease;
+  }
+  .service:hover{background:var(--mint-pale);}
+  .service .icon{
+    width:44px; height:44px; margin-bottom:20px;
+    color:var(--teal-deep);
+  }
+  .service h3{font-size:1.12rem; margin-bottom:10px;}
+  .service p{color:var(--ink-soft); font-size:0.94rem;}
+  @media (max-width:760px){ .services-grid{grid-template-columns:1fr;} }
+
+  /* ---------- Why / trust ---------- */
+  .trust-list{display:grid; grid-template-columns:repeat(2,1fr); gap:28px 40px;}
+  .trust-item{display:flex; gap:16px;}
+  .trust-num{
+    font-family:'Fraunces', serif; font-weight:600; font-size:1.4rem; color:var(--gold);
+    flex-shrink:0; width:36px;
+  }
+  .trust-item h3{font-size:1.02rem; margin-bottom:6px;}
+  .trust-item p{color:var(--ink-soft); font-size:0.92rem;}
+  @media (max-width:760px){ .trust-list{grid-template-columns:1fr;} }
+
+  /* ---------- Reviews ---------- */
+  .review-strip{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+  }
+  .review-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:28px;
+  }
+  .review-card .stars{display:block; margin-bottom:14px;}
+  .review-card p{font-size:0.95rem; color:var(--ink); margin-bottom:16px;}
+  .review-card .who{font-family:'IBM Plex Mono',monospace; font-size:0.72rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.08em;}
+  @media (max-width:900px){ .review-strip{grid-template-columns:1fr;} }
+
+  /* ---------- Location ---------- */
+  .location-card{
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border:1px solid var(--line); border-radius:18px; overflow:hidden;
+    background:var(--cream);
+  }
+  .location-info{padding:48px;}
+  .location-info h2{font-size:1.7rem; margin-bottom:22px;}
+  .info-row{display:flex; gap:14px; padding:14px 0; border-top:1px solid var(--line);}
+  .info-row:first-of-type{border-top:none;}
+  .info-row .label{
+    font-family:'IBM Plex Mono',monospace; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.1em;
+    color:var(--teal-mid); width:110px; flex-shrink:0; padding-top:2px;
+  }
+  .info-row .val{font-size:0.96rem;}
+  .location-visual{
+    background:var(--teal-deep);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:48px; color:var(--cream); text-align:center; gap:18px;
+  }
+  .location-visual .ring{
+    width:76px; height:76px; border-radius:50%;
+    border:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .location-visual .ring svg{width:32px; height:32px; stroke:var(--gold);}
+  .location-visual p{color:var(--teal-soft); font-size:0.88rem; max-width:28ch;}
+  @media (max-width:800px){ .location-card{grid-template-columns:1fr;} .location-info{padding:36px 28px;} .location-visual{padding:36px 28px;} }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--teal-deep); color:var(--cream);
+    padding:56px 0 32px;
+  }
+  .footer-top{
+    display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:32px;
+    padding-bottom:32px; border-bottom:1px solid rgba(246,244,238,0.14);
+    margin-bottom:24px;
+  }
+  footer h3{color:var(--cream); font-size:1.2rem; margin-bottom:8px;}
+  footer .sub{color:var(--teal-soft); font-size:0.9rem; max-width:34ch;}
+  .footer-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:0.8rem; color:var(--teal-soft);
+    font-family:'IBM Plex Mono', monospace;
+  }
+
+  /* ---------- Motion scene (animated exercise illustration) ---------- */
+  .motion-section{background:var(--teal-deep); color:var(--cream);}
+  .motion-section .eyebrow{color:var(--teal-soft);}
+  .motion-section .section-head h2{color:var(--cream);}
+  .motion-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:center;}
+  .motion-copy p{color:var(--teal-soft); font-size:1rem; max-width:40ch; margin-top:14px;}
+  .motion-tags{display:flex; gap:10px; flex-wrap:wrap; margin-top:24px;}
+  .motion-tags span{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.06em;
+    border:1px solid rgba(246,244,238,0.25); border-radius:100px; padding:6px 14px; color:var(--cream);
+  }
+  .motion-stage{
+    background:rgba(246,244,238,0.04);
+    border:1px solid rgba(246,244,238,0.14);
+    border-radius:18px;
+    padding:28px 20px 16px;
+  }
+  .motion-stage svg{width:100%; height:auto; display:block;}
+  .motion-caption{
+    font-family:'IBM Plex Mono', monospace; font-size:0.7rem; letter-spacing:0.06em;
+    color:var(--teal-soft); text-align:center; margin-top:14px; text-transform:uppercase;
+  }
+  @keyframes legLift{
+    0%, 100% { transform: rotate(0deg); }
+    45%, 55% { transform: rotate(-58deg); }
+  }
+  @keyframes armGuide{
+    0%, 100% { transform: rotate(0deg); }
+    45%, 55% { transform: rotate(-16deg); }
+  }
+  @keyframes floatDot{
+    0%, 100% { transform: translateY(0); opacity:0.5; }
+    50% { transform: translateY(-6px); opacity:1; }
+  }
+  .lower-leg{ transform-origin:205px 150px; animation: legLift 3.6s ease-in-out infinite; }
+  .guide-arm{ transform-origin:280px 95px; animation: armGuide 3.6s ease-in-out infinite; }
+  .beat{ animation: floatDot 1.8s ease-in-out infinite; }
+  .beat:nth-child(2){ animation-delay:0.3s; }
+  .beat:nth-child(3){ animation-delay:0.6s; }
+
+  /* gentle idle motion on service icons */
+  @keyframes iconBreathe{
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+  .service:hover .icon{ animation: iconBreathe 1.6s ease-in-out infinite; }
+
+  /* reveal on scroll */
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity 0.6s ease, transform 0.6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <span class="brand-mark">MR</span>
+      MR Prime Care & Rehab
+    </div>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#location">Visit</a>
+    </nav>
+    <a class="btn btn-primary" href="tel:+917036370696">Call Now</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <div>
+      <div class="rating-badge">
+        <span class="stars">★★★★★</span> 5.0 rating · 17 patient reviews
+      </div>
+      <h1>Physiotherapy & rehabilitation care for Devanakonda, done properly.</h1>
+      <p class="lead">A clean, dedicated clinic near the Bus Stand offering guided physiotherapy and rehabilitation — with clear explanations at every step and a team that's genuinely invested in your recovery.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="tel:+917036370696">Call +91 70363 70696</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/place/MR+Prime+Care+%26+Rehab+Clinic,+near+Bus+stand,+Devanakonda,+Andhra+Pradesh+518465/data=!4m2!3m1!1s0x3bb65d002107c8c1:0x38f5dbc3433a520b!18m1!1e1?coh=192189&entry=gps&skid=c5daa1d1-4f05-4447-b3e1-df58a4079bc0" target="_blank" rel="noopener">Get Directions</a>
+      </div>
+      <div class="hero-meta">
+        <div><span class="dot"></span> Near Bus Stand, Devanakonda</div>
+        <div><span class="dot"></span> Open all 7 days</div>
+        <div><span class="dot"></span> Andhra Pradesh 518465</div>
+      </div>
+    </div>
+
+    <div class="clock-wrap" aria-hidden="true">
+      <div class="clock-ring"></div>
+      <div class="clock-face">
+        <div class="big">24</div>
+        <div class="small">Hours a Day</div>
+      </div>
+      <div class="hand"></div>
+    </div>
+  </section>
+
+  <section id="services" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What we treat</span>
+        <h2>Care built around your recovery</h2>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 4a2 2 0 100 4 2 2 0 000-4zM8 20l2-6 3 2 2-5M6 20l1.5-4.5"/><circle cx="13" cy="6" r="2"/></svg>
+          <h3>Physiotherapy</h3>
+          <p>Hands-on sessions with clearly explained exercises, tailored to how your body responds — not a one-size routine.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h4l2-8 4 16 2-8h4"/></svg>
+          <h3>Rehabilitation</h3>
+          <p>Structured recovery programs for injury, surgery, or mobility loss, tracked closely from first visit to full function.</p>
+        </div>
+        <div class="service">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          <h3>Pain Management</h3>
+          <p>Targeted treatment for chronic and acute pain, with a plan you understand and can follow at home too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="motion-section">
+    <div class="wrap">
+      <div class="motion-grid reveal">
+        <div class="motion-copy">
+          <span class="eyebrow">In the clinic</span>
+          <h2>Movement you can see happening</h2>
+          <p>A guided knee-extension stretch, the kind of hands-on session that runs every day here — supported, corrected, and repeated until it's right.</p>
+          <div class="motion-tags">
+            <span>Guided reps</span>
+            <span>Real-time correction</span>
+            <span>Every visit</span>
+          </div>
+        </div>
+        <div class="motion-stage">
+          <svg viewBox="0 0 400 220" role="img" aria-label="Animated illustration of a therapist guiding a patient through a seated knee-extension stretch">
+            <line x1="20" y1="200" x2="380" y2="200" stroke="rgba(246,244,238,0.18)" stroke-width="2"/>
+            <line x1="155" y1="150" x2="155" y2="200" stroke="rgba(246,244,238,0.3)" stroke-width="5" stroke-linecap="round"/>
+            <line x1="215" y1="150" x2="215" y2="200" stroke="rgba(246,244,238,0.3)" stroke-width="5" stroke-linecap="round"/>
+            <rect x="150" y="142" width="70" height="9" rx="3" fill="rgba(246,244,238,0.3)"/>
+
+            <g class="patient">
+              <line x1="180" y1="115" x2="160" y2="140" stroke="#EAF3F1" stroke-width="5" stroke-linecap="round"/>
+              <line x1="180" y1="102" x2="180" y2="150" stroke="#EAF3F1" stroke-width="5" stroke-linecap="round"/>
+              <line x1="180" y1="150" x2="205" y2="150" stroke="#EAF3F1" stroke-width="5" stroke-linecap="round"/>
+              <g class="lower-leg">
+                <line x1="205" y1="150" x2="205" y2="195" stroke="#EAF3F1" stroke-width="5" stroke-linecap="round"/>
+                <circle class="beat" cx="205" cy="195" r="4" fill="var(--gold)"/>
+              </g>
+              <circle cx="180" cy="90" r="12" fill="#EAF3F1"/>
+            </g>
+
+            <g class="therapist">
+              <line x1="280" y1="150" x2="260" y2="200" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/>
+              <line x1="280" y1="150" x2="300" y2="200" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/>
+              <line x1="280" y1="82" x2="280" y2="150" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/>
+              <g class="guide-arm">
+                <line x1="280" y1="95" x2="228" y2="122" stroke="var(--gold)" stroke-width="5" stroke-linecap="round"/>
+                <circle class="beat" cx="228" cy="122" r="4" fill="#EAF3F1"/>
+              </g>
+              <circle cx="280" cy="70" r="12" fill="var(--gold)"/>
+            </g>
+          </svg>
+          <p class="motion-caption">Therapist-guided · Looping demonstration</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Why patients come back</span>
+        <h2>What consistently gets mentioned</h2>
+      </div>
+      <div class="trust-list reveal">
+        <div class="trust-item">
+          <span class="trust-num">01</span>
+          <div>
+            <h3>Explained, not just administered</h3>
+            <p>Every exercise and treatment step is walked through in plain language before it's done.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">02</span>
+          <div>
+            <h3>A genuinely clean clinic</h3>
+            <p>Patients consistently note the space is well kept — small detail, but it shows in how care is delivered.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">03</span>
+          <div>
+            <h3>Friendly, attentive staff</h3>
+            <p>The kind of atmosphere that makes repeat physiotherapy visits easier, not something to dread.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <span class="trust-num">04</span>
+          <div>
+            <h3>Open round the clock</h3>
+            <p>Every day, all 24 hours — care fits your schedule, not the other way around.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews" class="alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">From patients</span>
+        <h2>What people are saying</h2>
+      </div>
+      <div class="review-strip reveal">
+        <div class="review-card">
+          <span class="stars">★★★★★</span>
+          <p>Recovered faster than expected — the therapist walked through every exercise clearly in a clean, welcoming clinic.</p>
+          <span class="who">Google review</span>
+        </div>
+        <div class="review-card">
+          <span class="stars">★★★★★</span>
+          <p>Good physiotherapy treatment overall. The doctor explains each problem clearly and treats patients with real care.</p>
+          <span class="who">Google review</span>
+        </div>
+        <div class="review-card">
+          <span class="stars">★★★★★</span>
+          <p>Considered by several locals to be the best clinic in Devanakonda for pain relief and rehabilitation.</p>
+          <span class="who">Google review</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="location">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Visit us</span>
+        <h2>Find the clinic</h2>
+      </div>
+      <div class="location-card reveal">
+        <div class="location-info">
+          <h2>Get in touch</h2>
+          <div class="info-row">
+            <span class="label">Address</span>
+            <span class="val">Near Bus Stand, Devanakonda, Andhra Pradesh 518465</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Phone</span>
+            <span class="val"><a href="tel:+917036370696" style="color:var(--teal-deep); font-weight:600;">+91 70363 70696</a></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Hours</span>
+            <span class="val">Open 24 hours — every day of the week</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Rating</span>
+            <span class="val">5.0 out of 5, from 17 Google reviews</span>
+          </div>
+          <div style="margin-top:28px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="tel:+917036370696">Call the clinic</a>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/place/MR+Prime+Care+%26+Rehab+Clinic,+near+Bus+stand,+Devanakonda,+Andhra+Pradesh+518465/data=!4m2!3m1!1s0x3bb65d002107c8c1:0x38f5dbc3433a520b!18m1!1e1?coh=192189&entry=gps&skid=c5daa1d1-4f05-4447-b3e1-df58a4079bc0" target="_blank" rel="noopener">Open in Google Maps</a>
+          </div>
+        </div>
+        <div class="location-visual">
+          <div class="ring">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11.2A7 7 0 0119 9.8C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.4"/></svg>
+          </div>
+          <h3 style="color:var(--cream); font-size:1.1rem;">Devanakonda</h3>
+          <p>Right near the Bus Stand — easy to find, easy to reach, open whenever you need us.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <h3>MR Prime Care & Rehab Clinic</h3>
+        <p class="sub">Physiotherapy and rehabilitation care, near Bus Stand, Devanakonda, Andhra Pradesh.</p>
+      </div>
+      <a class="btn btn-primary" href="tel:+917036370696">Call +91 70363 70696</a>
+    </div>
+    <div class="footer-bottom">
+      <span>Open 24 hours · 7 days a week</span>
+      <span>518465, Andhra Pradesh, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:0.15});
+  items.forEach(i=>io.observe(i));
+</script>
+
+</body>
+</html>
